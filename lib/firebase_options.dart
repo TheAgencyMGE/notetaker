@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -40,49 +41,49 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD5BeBfGVhQpyvMlRfuMwX1OZzob8bkkB4',
-    appId: '1:224806645411:web:f7c89ad7cb648f8a2f9916',
-    messagingSenderId: '224806645411',
-    projectId: 'notetaker-a32e4',
-    authDomain: 'notetaker-a32e4.firebaseapp.com',
-    storageBucket: 'notetaker-a32e4.firebasestorage.app',
-    measurementId: 'G-Y7KLW96JFQ',
+  static FirebaseOptions get web => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_WEB'] ?? 'AIzaSyD5BeBfGVhQpyvMlRfuMwX1OZzob8bkkB4',
+    appId: dotenv.env['FIREBASE_APP_ID_WEB'] ?? '1:224806645411:web:f7c89ad7cb648f8a2f9916',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '224806645411',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? 'notetaker-a32e4',
+    authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? 'notetaker-a32e4.firebaseapp.com',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? 'notetaker-a32e4.firebasestorage.app',
+    measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID_WEB'] ?? 'G-Y7KLW96JFQ',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAMltcBtGEc9mgP556YrIZVcaMfrXR3qsc',
-    appId: '1:224806645411:android:6b691d0d289f70712f9916',
-    messagingSenderId: '224806645411',
-    projectId: 'notetaker-a32e4',
-    storageBucket: 'notetaker-a32e4.firebasestorage.app',
+  static FirebaseOptions get android => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_ANDROID'] ?? 'AIzaSyAMltcBtGEc9mgP556YrIZVcaMfrXR3qsc',
+    appId: dotenv.env['FIREBASE_APP_ID_ANDROID'] ?? '1:224806645411:android:6b691d0d289f70712f9916',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '224806645411',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? 'notetaker-a32e4',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? 'notetaker-a32e4.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCQX1VWv5vCdPktKz_CABd48w9i8GCY29A',
-    appId: '1:224806645411:ios:f679eaf7039d9ca12f9916',
-    messagingSenderId: '224806645411',
-    projectId: 'notetaker-a32e4',
-    storageBucket: 'notetaker-a32e4.firebasestorage.app',
-    iosBundleId: 'com.example.notetaker',
+  static FirebaseOptions get ios => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_IOS'] ?? 'AIzaSyCQX1VWv5vCdPktKz_CABd48w9i8GCY29A',
+    appId: dotenv.env['FIREBASE_APP_ID_IOS'] ?? '1:224806645411:ios:f679eaf7039d9ca12f9916',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '224806645411',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? 'notetaker-a32e4',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? 'notetaker-a32e4.firebasestorage.app',
+    iosBundleId: dotenv.env['FIREBASE_IOS_BUNDLE_ID'] ?? 'com.example.notetaker',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCQX1VWv5vCdPktKz_CABd48w9i8GCY29A',
-    appId: '1:224806645411:ios:f679eaf7039d9ca12f9916',
-    messagingSenderId: '224806645411',
-    projectId: 'notetaker-a32e4',
-    storageBucket: 'notetaker-a32e4.firebasestorage.app',
-    iosBundleId: 'com.example.notetaker',
+  static FirebaseOptions get macos => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_IOS'] ?? 'AIzaSyCQX1VWv5vCdPktKz_CABd48w9i8GCY29A',
+    appId: dotenv.env['FIREBASE_APP_ID_IOS'] ?? '1:224806645411:ios:f679eaf7039d9ca12f9916',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '224806645411',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? 'notetaker-a32e4',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? 'notetaker-a32e4.firebasestorage.app',
+    iosBundleId: dotenv.env['FIREBASE_IOS_BUNDLE_ID'] ?? 'com.example.notetaker',
   );
 
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyD5BeBfGVhQpyvMlRfuMwX1OZzob8bkkB4',
-    appId: '1:224806645411:web:80d034718106934c2f9916',
-    messagingSenderId: '224806645411',
-    projectId: 'notetaker-a32e4',
-    authDomain: 'notetaker-a32e4.firebaseapp.com',
-    storageBucket: 'notetaker-a32e4.firebasestorage.app',
-    measurementId: 'G-GHCCXTXYBC',
+  static FirebaseOptions get windows => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_WEB'] ?? 'AIzaSyD5BeBfGVhQpyvMlRfuMwX1OZzob8bkkB4',
+    appId: dotenv.env['FIREBASE_APP_ID_WINDOWS'] ?? '1:224806645411:web:80d034718106934c2f9916',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '224806645411',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? 'notetaker-a32e4',
+    authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? 'notetaker-a32e4.firebaseapp.com',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? 'notetaker-a32e4.firebasestorage.app',
+    measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID_WINDOWS'] ?? 'G-GHCCXTXYBC',
   );
 }
